@@ -18,7 +18,6 @@ fn main() {
 
     // println!();
 
-
     //Scalar types
     // let x = 5; //immutable variable binding
     // let mut y = 5; //mutable variable binding
@@ -56,4 +55,17 @@ fn main() {
     // let c = 'z';
     // let z = 'ℤ';
     // let _heart_eyed_cat = '😻';
+
+    //Compound types
+    // let mut arr: [i32; 6] = [10, 20, 30, 40, 50, 60];
+    // arr[1] = 21;
+    // println!("arr[1]: {}", arr[1]); //Array type
+    // println!("arr: {:?}", arr); //Array type
+
+    // //Tuple type
+    // let tup: (i32, f64, u8) = (500, 6.4, 1);
+    // let (_x, _y, _z) = tup; //destructuring
+    // println!("The value of y is: {}", _y);
+    // println!("The value of y is: {}", tup.1); //accessing tuple element
+
 }
