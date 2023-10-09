@@ -114,14 +114,55 @@ fn main() {
     //String vs str
     //&str an immutable reference to a string slice.
     //String a mutable string buffer.
-    let s1 = "World";
-    println!("s1: {s1}");
+    // let s1 = "World";
+    // println!("s1: {s1}");
 
-    let mut s2 = String::from("Hello ");
-    println!("s2: {s2}");
-    s2.push_str(s1);
-    println!("s2: {s2}");
+    // let mut s2 = String::from("Hello ");
+    // println!("s2: {s2}");
+    // s2.push_str(s1);
+    // println!("s2: {s2}");
 
-    let s3: &str = &s2[6..];
-    println!("s3: {s3}");
+    // let s3: &str = &s2[6..];
+    // println!("s3: {s3}");
+
+    print_fizzbuzz_to(21);
+}
+
+//function Rustdoc
+/// Determine whether the first argument is divisible by the second argument.
+///
+/// If the second argument is zero, the result is false.
+///
+/// # Example
+/// ```
+/// assert!(is_divisible_by(42, 2));
+/// ``
+fn is_divisible_by(lhs: u32, rhs: u32) -> bool {
+    if rhs == 0 {
+        return false;
+    } else {
+        return true;
+    }
+}
+
+fn is_divisible(n: u32, divisor: u32) -> bool {
+    if divisor == 0 {
+        return false;
+    }
+    n % divisor == 0
+}
+
+fn fizzbuzz(n: u32) -> String {
+    let fizz = if is_divisible(n, 3) { "fizz" } else { "" };
+    let buzz = if is_divisible(n, 5) { "buzz" } else { "" };
+    if fizz.is_empty() && buzz.is_empty() {
+        return format!("{n}");
+    }
+    format!("{fizz}{buzz}")
+}
+
+fn print_fizzbuzz_to(n: u32) {
+    for i in 1..=n {
+        println!("{}",fizzbuzz(n))
+    }
 }
