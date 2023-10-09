@@ -1,3 +1,20 @@
+
+//struct
+struct Rectangle {
+    width: u32,
+    height: u32,
+}
+
+impl Rectangle {
+    fn area(&self) -> u32 {
+        self.width * self.height
+    }
+
+    fn inc_width(&mut self, delta: u32) {
+        self.width += delta;
+    }
+}
+
 fn main() {
     // println! is a macro that prints text to the console
     //println!("Hello, world!");
@@ -125,44 +142,45 @@ fn main() {
     // let s3: &str = &s2[6..];
     // println!("s3: {s3}");
 
-    print_fizzbuzz_to(21);
+    // print_fizzbuzz_to(21);
+
+    let mut rect = Rectangle {
+        width: 30,
+        height: 50,
+    };
+
+    println!("rect area: {}", rect.area());
+    rect.inc_width(20);
+    println!("rect area: {}", rect.area());
 }
 
 //function Rustdoc
-/// Determine whether the first argument is divisible by the second argument.
-///
-/// If the second argument is zero, the result is false.
-///
-/// # Example
-/// ```
-/// assert!(is_divisible_by(42, 2));
-/// ``
-fn is_divisible_by(lhs: u32, rhs: u32) -> bool {
-    if rhs == 0 {
-        return false;
-    } else {
-        return true;
-    }
-}
+// fn is_divisible_by(lhs: u32, rhs: u32) -> bool {
+//     if rhs == 0 {
+//         return false;
+//     } else {
+//         return true;
+//     }
+// }
 
-fn is_divisible(n: u32, divisor: u32) -> bool {
-    if divisor == 0 {
-        return false;
-    }
-    n % divisor == 0
-}
+// fn is_divisible(n: u32, divisor: u32) -> bool {
+//     if divisor == 0 {
+//         return false;
+//     }
+//     n % divisor == 0
+// }
 
-fn fizzbuzz(n: u32) -> String {
-    let fizz = if is_divisible(n, 3) { "fizz" } else { "" };
-    let buzz = if is_divisible(n, 5) { "buzz" } else { "" };
-    if fizz.is_empty() && buzz.is_empty() {
-        return format!("{n}");
-    }
-    format!("{fizz}{buzz}")
-}
+// fn fizzbuzz(n: u32) -> String {
+//     let fizz = if is_divisible(n, 3) { "fizz" } else { "" };
+//     let buzz = if is_divisible(n, 5) { "buzz" } else { "" };
+//     if fizz.is_empty() && buzz.is_empty() {
+//         return format!("{n}");
+//     }
+//     format!("{fizz}{buzz}")
+// }
 
-fn print_fizzbuzz_to(n: u32) {
-    for i in 1..=n {
-        println!("{}",fizzbuzz(n))
-    }
-}
+// fn print_fizzbuzz_to(n: u32) {
+//     for i in 1..=n {
+//         println!("{}",fizzbuzz(n))
+//     }
+// }
