@@ -1,4 +1,3 @@
-
 //struct
 // struct Rectangle {
 //     width: u32,
@@ -153,8 +152,13 @@ fn main() {
     // rect.inc_width(20);
     // println!("rect area: {}", rect.area());
 
-    println!("coin toss: {}", pick_one("heads", "tails"));
-    println!("cash prize: {}", pick_one(500, 1000));
+    // println!("coin toss: {}", pick_one("heads", "tails"));
+    // println!("cash prize: {}", pick_one(500, 1000));
+
+    let x: i8 = 15;
+    let y: i16 = 1000;
+
+    println!("{x} * {y} = {}", multiply(x.into(), y));
 }
 
 //function Rustdoc
@@ -195,6 +199,10 @@ fn main() {
 // All call sites have the same number of arguments.
 // Macros are sometimes used as an alternative.
 
-fn pick_one<T>(a: T, b: T) -> T {
-    if std::process::id() % 2 == 0 { a } else { b }
+// fn pick_one<T>(a: T, b: T) -> T {
+//     if std::process::id() % 2 == 0 { a } else { b }
+// }
+
+fn multiply(x: i16, y: i16) -> i16 {
+    x * y
 }
