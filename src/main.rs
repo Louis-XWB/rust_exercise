@@ -155,10 +155,23 @@ fn main() {
     // println!("coin toss: {}", pick_one("heads", "tails"));
     // println!("cash prize: {}", pick_one(500, 1000));
 
-    let x: i8 = 15;
-    let y: i16 = 1000;
+    // let x: i8 = 15;
+    // let y: i16 = 1000;
 
-    println!("{x} * {y} = {}", multiply(x.into(), y));
+    // println!("{x} * {y} = {}", multiply(x.into(), y));
+
+    let array = [10, 20, 30];
+    println!("array: {array:?}");
+    for n in &array {
+        println!("{n}")
+    }
+
+    println!();
+    print!("Iterating over range:");
+    for i in 0..3 {
+        print!(" {}", array[i]);
+    }
+    println!();
 }
 
 //function Rustdoc
@@ -203,6 +216,6 @@ fn main() {
 //     if std::process::id() % 2 == 0 { a } else { b }
 // }
 
-fn multiply(x: i16, y: i16) -> i16 {
-    x * y
-}
+// fn multiply(x: i16, y: i16) -> i16 {
+//     x * y
+// }
