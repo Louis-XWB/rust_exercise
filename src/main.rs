@@ -1,19 +1,19 @@
 
 //struct
-struct Rectangle {
-    width: u32,
-    height: u32,
-}
+// struct Rectangle {
+//     width: u32,
+//     height: u32,
+// }
 
-impl Rectangle {
-    fn area(&self) -> u32 {
-        self.width * self.height
-    }
+// impl Rectangle {
+//     fn area(&self) -> u32 {
+//         self.width * self.height
+//     }
 
-    fn inc_width(&mut self, delta: u32) {
-        self.width += delta;
-    }
-}
+//     fn inc_width(&mut self, delta: u32) {
+//         self.width += delta;
+//     }
+// }
 
 fn main() {
     // println! is a macro that prints text to the console
@@ -144,14 +144,17 @@ fn main() {
 
     // print_fizzbuzz_to(21);
 
-    let mut rect = Rectangle {
-        width: 30,
-        height: 50,
-    };
+    // let mut rect = Rectangle {
+    //     width: 30,
+    //     height: 50,
+    // };
 
-    println!("rect area: {}", rect.area());
-    rect.inc_width(20);
-    println!("rect area: {}", rect.area());
+    // println!("rect area: {}", rect.area());
+    // rect.inc_width(20);
+    // println!("rect area: {}", rect.area());
+
+    println!("coin toss: {}", pick_one("heads", "tails"));
+    println!("cash prize: {}", pick_one(500, 1000));
 }
 
 //function Rustdoc
@@ -184,3 +187,14 @@ fn main() {
 //         println!("{}",fizzbuzz(n))
 //     }
 // }
+
+// Each function has a single implementation:
+// Always takes a fixed number of parameters.
+// Always takes a single set of parameter types.
+// Default values are not supported:
+// All call sites have the same number of arguments.
+// Macros are sometimes used as an alternative.
+
+fn pick_one<T>(a: T, b: T) -> T {
+    if std::process::id() % 2 == 0 { a } else { b }
+}
