@@ -160,19 +160,134 @@ fn main() {
 
     // println!("{x} * {y} = {}", multiply(x.into(), y));
 
-    let array = [10, 20, 30];
-    println!("array: {array:?}");
-    for n in &array {
-        println!("{n}")
+    // let array = [10, 20, 30];
+    // println!("array: {array:?}");
+    // for n in array {
+    //     println!("{n}")
+    // }
+
+    // let temperature = 14;
+    // let adjustment  = if temperature<15 {10}else{20}
+
+    // let a = [10, 20, 30, 40, 50];
+
+    // for element in a {
+    //     println!("the value is: {}", element);
+    // }
+
+    // println!();
+    // print!("Iterating over range:");
+    // for i in 0..3 {
+    //     print!(" {}", array[i]);
+    // }
+    // println!();
+
+    // Examples of non-decimal integer representations
+    // let hex = 0xff; // Hexadecimal format
+    // let octal = 0o77; // Octal format
+    // let binary = 0b1111_0000; // Binary format
+    // let byte = b'A'; // Byte format (u8 only)
+
+    // This will cause a panic if the index is out of bounds
+    // An array of integers
+
+    // println!("is_child: {}", is_child(19));
+
+    struct User {
+        active: bool,
+        username: String,
+        email: String,
+        sign_in_count: u64,
     }
 
-    println!();
-    print!("Iterating over range:");
-    for i in 0..3 {
-        print!(" {}", array[i]);
-    }
-    println!();
+    let user1 = User {
+        active: true,
+        username: String::from("user1"),
+        email: String::from("email@email.com"),
+        sign_in_count: 1,
+    };
+
+    let active = user1.active;
+    let username = user1.username;
+    let email = user1.email;
+    let sign_in_count = user1.sign_in_count;
+    // user1.active = false;
+
+    let username = String::from("test");
+    let mut user2 = User {
+        active: user1.active,
+        username,
+        email: String::from("email2@gmail.com"),
+        sign_in_count: 1,
+    };
+
+    user2.active = false;
+
+    let user3 = User {
+        active: false,
+        ..user2
+    };
+
+    let customWidth = 10;
+
+    let mut rectangle = Rectangle {
+        width: dbg!(10 * customWidth),
+        height: 20,
+    };
+
+    println!("area: {}", area(&rectangle));
+    println!("rectangle: {:?}", rectangle);
+
+    dbg!(&rectangle);
+
+    println!("area: {}", rectangle.area());
+    rectangle.inc_width(200);
+    println!("area: {}", rectangle.area());
+
+    let square = Rectangle::square(10);
+    println!("square: {:?}", square);
+
+    let isRightWidth = Rectangle::isRightWidth(10);
+    println!("isRightWidth: {}", isRightWidth);
 }
+
+#[derive(Debug)]
+struct Rectangle {
+    width: u32,
+    height: u32,
+}
+
+impl Rectangle {
+    fn area(&self) -> u32 {
+        self.height * self.width
+    }
+
+    fn inc_width(&mut self, delta: u32) {
+        self.width += delta;
+    }
+
+    fn square(size: u32) -> Rectangle {
+        Rectangle {
+            width: size,
+            height: size,
+        }
+    }
+
+    fn isRightWidth(width: u32) -> bool {
+        width > 5
+    }
+}
+
+fn area(rectangle: &Rectangle) -> u32 {
+    rectangle.width * rectangle.height
+}
+
+// fn is_child(age: i32) -> bool {
+//     if (age < 18) {
+//         return true;
+//     }
+//     false
+// }
 
 //function Rustdoc
 // fn is_divisible_by(lhs: u32, rhs: u32) -> bool {
